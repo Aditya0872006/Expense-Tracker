@@ -3,21 +3,34 @@
 }
 
 body {
+  /* Set a consistent font and remove default margin for better mobile display */
   font-family: Arial, sans-serif;
   background: #f4f4f4;
+  margin: 0;
+  display: flex; /* Centers the container vertically */
+  justify-content: center; /* Centers the container horizontally */
+  align-items: center;
+  min-height: 100vh; /* Ensures the container is centered on the full screen */
 }
 
 .container {
-  max-width: 400px;
-  margin: 30px auto;
+  /* Make the container fluid for smaller screens */
+  width: 90%; 
+  max-width: 400px; /* Limit the width on larger screens */
   background: #fff;
   padding: 20px;
   border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2, h3 {
   text-align: center;
   margin-bottom: 10px;
+}
+
+/* Ensure a consistent, responsive font size */
+h1#balance {
+  font-size: 2.5rem;
 }
 
 .inc-exp-container {
@@ -30,6 +43,7 @@ h2, h3 {
 
 .money {
   font-size: 18px;
+  font-weight: bold;
 }
 
 .money.plus {
@@ -71,4 +85,12 @@ h2, h3 {
   color: white;
   border: none;
   cursor: pointer;
+}
+
+.form-control input {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 2px;
 }
