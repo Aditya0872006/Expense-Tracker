@@ -6,8 +6,7 @@ const form = document.getElementById('form');
 const text = document.getElementById('text');
 const amount = document.getElementById('amount');
 
-// Initialize with an empty array. We no longer load from localStorage on the first run.
-let transactions = [];
+let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
 function addTransaction(e) {
   e.preventDefault();
@@ -68,9 +67,9 @@ function updateLocalStorage() {
   localStorage.setItem('transactions', JSON.stringify(transactions));
 }
 
-// The init function now just sets up the initial state.
 function init() {
   list.innerHTML = '';
+  transactions.forEach(addTransactionDOM);
   updateValues();
 }
 
