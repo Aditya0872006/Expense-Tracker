@@ -1,74 +1,184 @@
+/* Base styles */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background: #f5f7fa;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .container {
-  max-width: 400px;
-  margin: 30px auto;
+  width: 100%;
+  max-width: 600px;
   background: #fff;
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-h2, h3 {
+/* Heading */
+h2 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
 }
 
+/* Balance */
+.balance {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Income & Expense container */
 .inc-exp-container {
   display: flex;
   justify-content: space-between;
-  background: #eee;
-  padding: 10px;
+  background: #f0f4f8;
+  padding: 15px;
+  border-radius: 10px;
   margin: 20px 0;
 }
 
-.money {
-  font-size: 18px;
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
 }
 
 .money.plus {
-  color: green;
+  color: #2ecc71;
 }
 
 .money.minus {
-  color: red;
+  color: #e74c3c;
 }
 
-.list {
+/* Transaction list */
+#list {
   list-style-type: none;
+  margin: 20px 0;
   padding: 0;
-  margin-bottom: 30px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
-.list li {
-  background: #f6f6f6;
+#list li {
+  background: #f9f9f9;
   padding: 10px;
-  border-right: 5px solid;
-  margin: 10px 0;
+  border-radius: 8px;
+  margin: 8px 0;
   display: flex;
   justify-content: space-between;
-  position: relative;
+  align-items: center;
+  border-right: 5px solid;
 }
 
-.list li.plus {
-  border-color: green;
+#list li.plus {
+  border-color: #2ecc71;
 }
 
-.list li.minus {
-  border-color: red;
+#list li.minus {
+  border-color: #e74c3c;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+/* Form */
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .btn {
   width: 100%;
-  padding: 10px;
-  background: #333;
-  color: white;
+  padding: 12px;
   border: none;
+  border-radius: 8px;
+  background: #3498db;
+  color: white;
   cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background: #2980b9;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .balance {
+    font-size: 1.2rem;
+  }
+
+  .inc-exp-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
 }
